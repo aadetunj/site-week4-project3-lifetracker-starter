@@ -1,3 +1,46 @@
-.Navbar {
-  padding-top: 20px;
+* {
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  background-color: rgb(172, 172, 172);
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: rem; */
+  width: 100%;
+  min-width: 100%;
+  padding: 0 12rem;
+  height: 5rem;
+  /* min-width: 100%; */
+  /* position: fixed; */
+  border-radius: 0.5rem;
+}
+
+.site-title {
+  font-size: 2rem;
+  margin-left: -10rem;
+}
+
+.navbar ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 8rem;
+  font-size: 1.25rem;
+}
+
+.navbar a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a {
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: rgb(222, 194, 16);
 }
