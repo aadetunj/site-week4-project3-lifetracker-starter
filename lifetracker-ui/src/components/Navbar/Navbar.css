@@ -3,7 +3,8 @@
 }
 
 .navbar {
-  background-color: rgb(172, 172, 172);
+  /* background-color: rgb(172, 172, 172); */
+  background-color: transparent;
   color: black;
   display: flex;
   justify-content: space-between;
@@ -43,4 +44,13 @@ a {
 
 .navbar a:hover {
   color: rgb(222, 194, 16);
+}
+
+.signButton, .regButton{
+  width: 4rem;
+  height: 2rem;
+  /* margin-bottom: 3vh; */
+  border-radius: 0.3rem;
+  background-color: rgb(214, 208, 208);
+  border: none;
 }

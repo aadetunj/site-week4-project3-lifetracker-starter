@@ -7,7 +7,7 @@ export default function Hero() {
         <div className="intro">
           <h1 className="h1">LifeTracker</h1>
           <p id="hero-paragraph">
-          Helping you take back control of your world.
+          Helping you take back conch of your world.
           </p>
         </div>
         <div className="media">

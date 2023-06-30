@@ -2,12 +2,13 @@ import * as React from "react";
 import "./Navbar.css";
 import { Link, Outlet } from "react-router-dom";
 
+
 export default function Navbar() {
   return (
     <>
       <nav className="navbar">
         <a href="/" className="site-title">
-          <b>A-A-A?</b>
+          ayo's very own...
         </a>
         <ul>
           <li>
@@ -23,10 +24,14 @@ export default function Navbar() {
             <a href="#product-list">Sleep</a>
           </li>
           <li>
-            <a href="#Contact">Sign In</a>
+          <Link to="/signIn">
+            <a href="#Contact" ><button className="signButton">Sign In</button></a>
+          </Link>
           </li>
           <li>
-            <a href="#Contact">Register</a>
+          <Link to="/register">
+            <button className="regButton">Register</button>
+            </Link>
           </li>
         </ul>
       </nav>
