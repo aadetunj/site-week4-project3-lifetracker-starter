@@ -2,7 +2,6 @@ import * as React from "react";
 import "./Navbar.css";
 import { Link, Outlet } from "react-router-dom";
 
-
 export default function Navbar() {
   return (
     <>
@@ -24,13 +23,13 @@ export default function Navbar() {
             <a href="#product-list">Sleep</a>
           </li>
           <li>
-          <Link to="/signIn">
-            <a href="#Contact" ><button className="signButton">Sign In</button></a>
-          </Link>
+            <Link to="auth/signIn">
+              <button className="signButton">Sign In</button>
+            </Link>
           </li>
           <li>
-          <Link to="/register">
-            <button className="regButton">Register</button>
+            <Link to="/auth/register">
+              <button className="regButton">Register</button>
             </Link>
           </li>
         </ul>

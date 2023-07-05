@@ -4,9 +4,9 @@ export default function SignIn() {
   return (
     <>
       <h2>Sign In</h2>
-      <div class="name-field">
-        <label className="label">Name</label>
-        <div clclassNameass="control ">
+      <div className="email-field">
+        <label className="label">Email</label>
+        <div className="control">
           <input
             name="name"
             className="checkout-form-input"
@@ -18,12 +18,12 @@ export default function SignIn() {
         </div>
       </div>
 
-      <div className="email-field">
-        <label className="label">Email</label>
+      <div className="pword-field">
+        <label className="label">Password</label>
         <div className="control">
           <input
             name="email"
-            class="checkout-form-input"
+            className="checkout-form-input"
             type="email"
             placeholder="student@codepath.org"
             // value={emailInput}
@@ -31,6 +31,7 @@ export default function SignIn() {
           />
         </div>
       </div>
+      <button>Sign In</button>
     </>
   );
 }

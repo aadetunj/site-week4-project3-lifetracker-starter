@@ -362,18 +362,18 @@ Here are the pieces of functionality that should be built out for the backend:
   - [X] Create a `.gitignore` file, an `app.js` file, an `app.test.js` file, and a `server.js` file
   - [X] Make sure `node_modules` are added to the `.gitignore` file.
   - [X] Add dependencies for `express@next`, `morgan`, `cors`, and `nodemon`
-  - [ X] Install new dependencies for `bcrypt`, `jsonwebtoken`, `colors`, `dotenv`, `pg`
-  - [ ] Commit all work to `git`
-  - [ ] Add a `.env` file to the root of the repo and include the following environment variables
-    - [ ] `PORT` (default to `3001`)
-    - [ ] `SECRET_KEY` (set to a long random string)
-    - [ ] `BCRYPT_WORK_FACTOR` (set to `13`)
-    - [ ] `DATABASE_USER`
-    - [ ] `DATABASE_PASS`
-    - [ ] `DATABASE_HOST`
-    - [ ] `DATABASE_PORT`
-    - [ ] `DATABASE_NAME` - (set to `lifetracker`)
-    - [ ] `DATABASE_TEST_NAME` - (set to `lifetracker_test`)
+  - [X] Install new dependencies for `bcrypt`, `jsonwebtoken`, `colors`, `dotenv`, `pg`
+  - [X] Commit all work to `git`
+  - [X] Add a `.env` file to the root of the repo and include the following environment variables
+    - [x] `PORT` (default to `3001`)
+    - [x] `SECRET_KEY` (set to a long random string)
+    - [x] `BCRYPT_WORK_FACTOR` (set to `13`)
+    - [x] `DATABASE_USER`
+    - [x] `DATABASE_PASS`
+    - [x] `DATABASE_HOST`
+    - [x] `DATABASE_PORT`
+    - [x] `DATABASE_NAME` - (set to `lifetracker`)
+    - [x] `DATABASE_TEST_NAME` - (set to `lifetracker_test`)
   - [ ] Add a `config.test.js` file
     - [ ] Write tests that check to make sure that:
       - [ ] `process.env.NODE_ENV` is set to `test` when the test suite is run
@@ -417,7 +417,7 @@ Here are the pieces of functionality that should be built out for the backend:
           - [ ] `image_url`
           - [ ] `user_id`
           - [ ] `created_at`
-        - [ ] **Any other tables** that the application might depend on
+          - [ ] **Any other tables** that the application might depend on
     - [ ] `lifetracker.sql`
       - [ ] This script should:
         - [ ] 1. Let the user know that they're about to delete the `lifetracker` database and prompt them to confirm that is what they want.

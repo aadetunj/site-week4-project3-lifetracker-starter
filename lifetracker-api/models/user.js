@@ -1,0 +1,60 @@
+const db = require("../db")
+const bcrypt = require("bcrypt")
+const { BadRequestError, UnauthorizedError } = require("../utils/errors")
+const { validateFields } = require("../utils/validate")
+
+const { BCRYPT_WORK_FACTOR } = require("../config")
+
+
+class User {
+
+    static createPublicUser(user) {
+        return {
+            id: user.id,
+          email: user.email,
+          username: user.username,
+          firstName: user.firstName,
+          lastName: user.lastName, 
+          password: user.password,
+        }
+      }
+
+      static async register(credentials) {
+        console.log("credentials", credentials)
+        const requiredFields = ["emailaddress", "password", "username"]; // creating an array of the required fields
+
+        validateFields(credentials,requiredFields); // validating the required fields
+
+        if (credentials.emailaddress.indexOf("@") <= 0) { // checking if the email is valid
+            throw new BadRequestError("Invalid email.");
+        }
+
+        if (credentials.password.length < 6) { // checking if the password is valid
+            throw new BadRequestError("Password must be at least 6 characters.");
+        }
+
+        const existingUser = await User.fetchUserByEmail(credentials.emailaddress); // fetching the user by email
+        if (existingUser) {
+            throw new BadRequestError(`Duplicate email: ${credentials.email}`); // throwing an error if the email already exists
+        }
+
+        const hashedPassword = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR); // hashing the password
+        // console.log("hashedPassword", hashedPassword)
+        const normalizedEmail = credentials.emailaddress.toLowerCase(); // normalizing the email
+        const normalizedUsername = credentials.username.toLowerCase(); // normalizing the username
+
+        const userResult = await db.query(
+            `INSERT INTO users (first_name, last_name, email, username, hash_password)
+            VALUES ($1, $2, $3, $4, $5)
+            RETURNING id, email, username`,
+            [credentials.firstname, credentials.lastname, normalizedEmail, normalizedUsername, hashedPassword]
+          );// inserting the user into the database
+
+        const user = userResult.rows[0]; // creating a variable for the user
+
+        return await User.makePublicUser(user); // returning the user
+    }
+
+}
+
+module.exports = User
