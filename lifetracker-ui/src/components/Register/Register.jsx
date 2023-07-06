@@ -28,12 +28,11 @@ export default function Register({ user, setUser }) {
       console.log(event.target.value);
     }
 
-    console.log("this is user" ,user);
+    console.log("this is user", user);
   };
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    console.log("hey");
     // where we send user info to the db
     // send to async function (API)
     // API gets the data
@@ -43,16 +42,16 @@ export default function Register({ user, setUser }) {
     axios
       .post("http://localhost:3005/auth/register", user)
       .then((response) => {
-        console.log("hey2");
-        console.log("User registered successfully:", response.data);
+        console.log("User registered successfully", response.data);
+        // ---------why is response.data not printing out, anyhting in the console? what is in the res anyways?---------
+        console.log(response.data);
         // Handle successful registration
       })
       .catch((error) => {
         console.error("Error registering user:", error);
-        console.log("hey3errr");
         // Handle error during registration
       });
-    console.log("hey3");
+    console.log("n completed");
   };
 
   return (

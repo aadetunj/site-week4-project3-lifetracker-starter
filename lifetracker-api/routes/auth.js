@@ -29,11 +29,14 @@ router.post("/register", async function (req, res, next) {
 
 router.post("/login", async function (req, res, next) {
   try {
-    const user = await User.authenticate(req.body)
+    // console.log("in the logggg")
+    const user = await User.login(req.body)
     return res.status(200).json({ user })
   } catch (err) {
+    // console.log("login error")
     next(err)
   }
+  // console.log("login comp'd")
 })
 
 

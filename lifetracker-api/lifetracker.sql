@@ -5,7 +5,7 @@ DROP DATABASE IF EXISTS lifetracker;
 CREATE DATABASE lifetracker;
 \connect lifetracker
 
-\i site-week4-project3-lifetracker-starter/lifetracker-api/lifetracker-schema.sql
+\i lifetracker-schema.sql
 
 \echo 'Delete and recreate lifetracker_test db?'
 \prompt 'Return for yes or control-C to cancel > ' foo

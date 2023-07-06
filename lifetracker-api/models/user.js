@@ -15,7 +15,6 @@ class User {
           username: user.username,
           firstName: user.firstName,
           lastName: user.lastName, 
-     
         }
       }
 
@@ -74,6 +73,20 @@ class User {
       return user
     }
 
+    static async login(credentials) {
+      const requiredFields = ["email", "password"]; // creating an array of the required fields
+      validateFields(requiredFields,credentials); // validating the required fields
+      const user = await User.fetchUserByEmail(credentials.email); // fetching the user by email
+      if (user) {
+          // console.log("isValid", User.password, credentials.password)
+          const isValid = await bcrypt.compare(credentials.password, user.hash_password); // comparing the password to the hashed password
+          console.log("isValid", isValid)
+          if (isValid) {
+              return await User.createPublicUser(user); // returning the user
+          }
+      }
+      throw new UnauthorizedError("Invalid email/password combo"); // throwing an error if the email/password combo is invalid
+  }
 }
 
 module.exports = User
