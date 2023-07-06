@@ -8,22 +8,24 @@ const { BCRYPT_WORK_FACTOR } = require("../config")
 
 class User {
 
-    static createPublicUser(user) {
+    static async createPublicUser(user) {
         return {
             id: user.id,
           email: user.email,
           username: user.username,
           firstName: user.firstName,
           lastName: user.lastName, 
-          password: user.password,
+     
         }
       }
 
       static async register(credentials) {
         console.log("credentials", credentials)
         const requiredFields = ["emailaddress", "password", "username"]; // creating an array of the required fields
-
-        validateFields(credentials,requiredFields); // validating the required fields
+   
+      
+        validateFields(requiredFields,credentials); // validating the required fields
+       
 
         if (credentials.emailaddress.indexOf("@") <= 0) { // checking if the email is valid
             throw new BadRequestError("Invalid email.");
@@ -52,7 +54,24 @@ class User {
 
         const user = userResult.rows[0]; // creating a variable for the user
 
-        return await User.makePublicUser(user); // returning the user
+        return await User.createPublicUser(user); // returning the user
+    }
+
+    static async fetchUserByEmail(email) {
+      const result = await db.query(
+        `SELECT id,
+                email, 
+                hash_password,
+                first_name AS "firstName",
+                last_name AS "lastName"            
+             FROM users
+             WHERE email = $1`,
+        [email.toLowerCase()]
+      )
+  
+      const user = result.rows[0]
+  
+      return user
     }
 
 }

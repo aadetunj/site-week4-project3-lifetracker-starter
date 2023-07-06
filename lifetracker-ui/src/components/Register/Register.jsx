@@ -1,5 +1,6 @@
 import "./Register.css";
 import { useState } from "react";
+import React from "react";
 import axios from "axios";
 
 export default function Register({ user, setUser }) {
@@ -15,7 +16,7 @@ export default function Register({ user, setUser }) {
       console.log(event.target.value);
     }
     if (event.target.name === "email") {
-      user.email = event.target.value;
+      user.emailaddress = event.target.value;
       console.log("emaill initttt" + event.target.value);
     }
     if (event.target.name === "password") {
@@ -27,11 +28,12 @@ export default function Register({ user, setUser }) {
       console.log(event.target.value);
     }
 
-    console.log(user);
+    console.log("this is user" ,user);
   };
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    console.log("hey");
     // where we send user info to the db
     // send to async function (API)
     // API gets the data
@@ -39,15 +41,18 @@ export default function Register({ user, setUser }) {
 
     // Add logic to make the API request to register the user using axios
     axios
-      .post("http://localhost:3333/auth/register", user)
+      .post("http://localhost:3005/auth/register", user)
       .then((response) => {
+        console.log("hey2");
         console.log("User registered successfully:", response.data);
         // Handle successful registration
       })
       .catch((error) => {
         console.error("Error registering user:", error);
+        console.log("hey3errr");
         // Handle error during registration
       });
+    console.log("hey3");
   };
 
   return (

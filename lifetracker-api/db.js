@@ -6,6 +6,7 @@ const { getDatabaseUri } = require("./config")
 require("colors")
 
 const db = new Client({ connectionString: getDatabaseUri() })
+console.log(getDatabaseUri())
 
 db.connect((err) => {
   if (err) {

@@ -9,10 +9,9 @@ import Register from "../Register/Register";
 
 export default function App() {
   const [user, setUser] = useState({
-    // State hook to manage user data
     firstname: "",
     lastname: "",
-    email: "",
+    emailaddress: "",
     username: "",
     password: "",
   });
