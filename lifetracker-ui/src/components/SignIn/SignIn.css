@@ -1,0 +1,16 @@
+.wholeForm {
+  justify-content: center;
+  background-color: whitesmoke;
+  width: 20%;
+  margin-left: 45%;
+  border-radius: 0.25vh;
+  height: 20vh;
+}
+
+.signInHeader {
+  text-align: center;
+}
+
+.formField {
+  margin-left: 10px;
+}

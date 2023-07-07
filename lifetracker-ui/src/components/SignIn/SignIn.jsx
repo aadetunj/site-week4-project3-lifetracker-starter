@@ -1,8 +1,10 @@
 import "./SignIn.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function SignIn() {
+export default function SignIn({ appState, setAppState }) {
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
     email: "",
@@ -30,8 +32,13 @@ export default function SignIn() {
     try {
       const res = await axios.post("http://localhost:3005/auth/login", form);
       if (res?.data) {
+        // sign in was successful!, so change the website page to fit the appearance of the users!
         console.log(res);
-        console.log("Sign in Successful!, Good job Ayo")
+        console.log("Sign in Successful!");
+        console.log(appState);
+        setAppState(true);
+        console.log("updated apppSatet", appState);
+        navigate("/");
       } else {
         setErrors((e) => ({
           ...e,
@@ -48,41 +55,45 @@ export default function SignIn() {
     }
   };
 
-  return (
-    <>
-      <h2>Sign In</h2>
-      <form>
-      <div className="email-field">
-        <label className="label">Email</label>
-        <div className="control">
-          <input
-            name="email"
-            className="checkout-form-input"
-            type="text"
-            placeholder="Student Name..."
-            value={form.email}
-            onChange={handleUserInput}
-          />
-          {errors.email && <span className="error">{errors.email}</span>}
-        </div>
-      </div>
+  console.log("outside fn", appState);
 
-      <div className="password-field">
-        <label className="label">Password</label>
-        <div className="control">
-          <input
-            name="password"
-            className="checkout-form-input"
-            type="email"
-            placeholder="student@codepath.org"
-            value={form.password}
-            onChange={handleUserInput}
-          />
-          {errors.password && <span className="error">{errors.password}</span>}
+  return (
+    <div className="wholeForm">
+      <h2 className="signInHeader">Sign In</h2>
+      <form className="formField">
+        <div className="email-field">
+          <label className="label">Email</label>
+          <div className="control">
+            <input
+              name="email"
+              className="checkout-form-input"
+              type="text"
+              placeholder="Student Name..."
+              value={form.email}
+              onChange={handleUserInput}
+            />
+            {errors.email && <span className="error">{errors.email}</span>}
+          </div>
         </div>
-      </div>
-      <button onClick={handleOnSubmit}>Sign In</button>
+
+        <div className="password-field">
+          <label className="label">Password</label>
+          <div className="control">
+            <input
+              name="password"
+              className="checkout-form-input"
+              type="email"
+              placeholder="student@codepath.org"
+              value={form.password}
+              onChange={handleUserInput}
+            />
+            {errors.password && (
+              <span className="error">{errors.password}</span>
+            )}
+          </div>
+        </div>
+        <button onClick={handleOnSubmit}>Sign In</button>
       </form>
-    </>
+    </div>
   );
 }

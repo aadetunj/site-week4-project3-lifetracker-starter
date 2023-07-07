@@ -5,9 +5,9 @@ export default function Hero() {
     <div className="hero">
       <div className="content">
         <div className="intro">
-          <h1 className="h1">LifeTracker</h1>
+          <h1 className="h1">Hey There!</h1>
           <p id="hero-paragraph">
-          Helping you take back conch of your world.
+          LifeTracker will help you take back conch of your Life!
           </p>
         </div>
         <div className="media">

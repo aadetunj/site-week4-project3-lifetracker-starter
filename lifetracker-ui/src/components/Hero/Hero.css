@@ -1,12 +1,15 @@
+
+
 .h1 {
   font-size: 90px;
-  color: white;
+  color: black;
   margin-bottom: 7.5vh;
+  margin-left: 3vh;
 }
 
 .h2 {
   font-size: 90px;
-  color: white;
+  color: black;
   margin-top: -10vh;
 }
 
@@ -18,7 +21,7 @@
 }
 
 .content {
-  background: rgb(160, 160, 176);
+  background: rgb(237, 245, 251);
   max-width: 120vh;
   width: 120vh;
   margin: 0 auto;
@@ -41,8 +44,10 @@
 }
 
 .intro p {
-  color: white;
+  color: black;
   font-size: 1.5rem;
+  margin-left: 3vh;
+
 }
 
 #hero-img {

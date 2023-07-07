@@ -1,0 +1,15 @@
+.registerField{
+    background-color: whitesmoke;
+    width: 20%;
+    margin-left: 45%;
+    border-radius: 0.25vh;
+    height: 40vh;
+}
+
+.registerHeader{
+    text-align: center;
+}
+
+.allPrompts{
+    margin-left: 10px;
+}

@@ -6,8 +6,13 @@ import { useState } from "react";
 import Home from "../Home/Home";
 import SignIn from "../SignIn/SignIn";
 import Register from "../Register/Register";
+import SleepPage from "../SleepPage/SleepPage";
+import ExercisePage from "../ExercisePage/ExercisePage";
+import NutritionPage from "../NutritionPage/NutritionPage";
+import ActivityPage from "../ActivityPage/ActivityPage";
 
 export default function App() {
+  const [appState, setAppState] = useState(false);
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
@@ -16,16 +21,41 @@ export default function App() {
     password: "",
   });
 
+  console.log("updated", appState);
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
+        <Navbar appState={appState} setAppState={setAppState} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="auth/signIn" element={<SignIn />} />
+          <Route
+            path="auth/signIn"
+            element={<SignIn appState={appState} setAppState={setAppState} />}
+          />
           <Route
             path="auth/register"
-            element={<Register user={user} setUser={setUser} />}
+            element={
+              <Register
+                user={user}
+                setUser={setUser}
+                appState={appState}
+                setSApptate={setAppState}
+              />
+            }
+          />
+          <Route path="/" element={<Home appState={appState} />} />
+          <Route path="/Sleep" element={<SleepPage appState={appState} />} />
+          <Route
+            path="/Exercise"
+            element={<ExercisePage appState={appState} />}
+          />
+          <Route
+            path="/Nutrition"
+            element={<NutritionPage appState={appState} />}
+          />
+          <Route
+            path="/Activity"
+            element={<ActivityPage appState={appState} />}
           />
         </Routes>
       </BrowserRouter>
