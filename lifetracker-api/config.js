@@ -1,7 +1,7 @@
 require("dotenv").config()
 require("colors")
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3005
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3007
 
 // Use dev database, testing database, or via env var, production database
 function getDatabaseUri() {

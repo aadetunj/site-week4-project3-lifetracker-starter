@@ -1,13 +1,15 @@
 import "./Hero.css";
+import React from "react";
 
-export default function Hero() {
+export default function Hero({ signedUser }) {
+  console.log("from the her", signedUser);
   return (
     <div className="hero">
       <div className="content">
         <div className="intro">
-          <h1 className="h1">Hey There!</h1>
+          <h1 className="h1">Hey {signedUser.user?.firstName}</h1>
           <p id="hero-paragraph">
-          LifeTracker will help you take back conch of your Life!
+            LifeTracker will help you take back conch of your Life!
           </p>
         </div>
         <div className="media">

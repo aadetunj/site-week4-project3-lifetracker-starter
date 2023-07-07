@@ -20,6 +20,7 @@ export default function App() {
     username: "",
     password: "",
   });
+  const [signedUser, setSignedUser] = useState({});
 
   console.log("updated", appState);
   return (
@@ -27,10 +28,17 @@ export default function App() {
       <BrowserRouter>
         <Navbar appState={appState} setAppState={setAppState} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home signedUser={signedUser} />} />
           <Route
             path="auth/signIn"
-            element={<SignIn appState={appState} setAppState={setAppState} />}
+            element={
+              <SignIn
+                signedUser={signedUser}
+                setSignedUser={setSignedUser}
+                appState={appState}
+                setAppState={setAppState}
+              />
+            }
           />
           <Route
             path="auth/register"

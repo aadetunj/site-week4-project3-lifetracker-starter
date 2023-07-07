@@ -3,7 +3,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function SignIn({ appState, setAppState }) {
+export default function SignIn({
+  signedUser,
+  setSignedUser,
+  appState,
+  setAppState,
+}) {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
@@ -30,13 +35,18 @@ export default function SignIn({ appState, setAppState }) {
     setErrors((e) => ({ ...e, form: null }));
 
     try {
-      const res = await axios.post("http://localhost:3005/auth/login", form);
+      const res = await axios.post("http://localhost:3007/auth/login", form);
       if (res?.data) {
         // sign in was successful!, so change the website page to fit the appearance of the users!
         console.log(res);
         console.log("Sign in Successful!");
         console.log(appState);
         setAppState(true);
+        setSignedUser(res?.data);
+
+
+        
+        console.log("user has been set", res?.data);
         console.log("updated apppSatet", appState);
         navigate("/");
       } else {

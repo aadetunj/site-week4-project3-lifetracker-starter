@@ -56,6 +56,7 @@ class User {
         return await User.createPublicUser(user); // returning the user
     }
 
+    
     static async fetchUserByEmail(email) {
       const result = await db.query(
         `SELECT id,
