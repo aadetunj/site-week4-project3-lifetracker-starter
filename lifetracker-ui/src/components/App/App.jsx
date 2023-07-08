@@ -28,7 +28,6 @@ export default function App() {
       <BrowserRouter>
         <Navbar appState={appState} setAppState={setAppState} />
         <Routes>
-          <Route path="/" element={<Home signedUser={signedUser} />} />
           <Route
             path="auth/signIn"
             element={
@@ -51,7 +50,16 @@ export default function App() {
               />
             }
           />
-          <Route path="/" element={<Home appState={appState} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                signedUser={signedUser}
+                appState={appState}
+                setAppState={setAppState}
+              />
+            }
+          />
           <Route path="/Sleep" element={<SleepPage appState={appState} />} />
           <Route
             path="/Exercise"

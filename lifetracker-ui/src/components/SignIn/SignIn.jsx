@@ -38,16 +38,10 @@ export default function SignIn({
       const res = await axios.post("http://localhost:3007/auth/login", form);
       if (res?.data) {
         // sign in was successful!, so change the website page to fit the appearance of the users!
-        console.log(res);
         console.log("Sign in Successful!");
-        console.log(appState);
         setAppState(true);
         setSignedUser(res?.data);
-
-
-        
-        console.log("user has been set", res?.data);
-        console.log("updated apppSatet", appState);
+        localStorage.setItem("userId", res?.data.user.id);
         navigate("/");
       } else {
         setErrors((e) => ({

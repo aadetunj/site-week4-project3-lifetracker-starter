@@ -4,3 +4,14 @@
 .SleepPage .button button {
   flex: 1;
 }
+
+.sleepHeader {
+  width: 90%;
+  /* background-color: whitesmoke; */
+}
+
+.sleepForm {
+  background-color: whitesmoke;
+  width: 12%;
+  height: 20%;
+}
