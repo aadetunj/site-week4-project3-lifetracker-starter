@@ -56,7 +56,7 @@ class User {
         return await User.createPublicUser(user); // returning the user
     }
 
-    
+
     static async fetchUserByEmail(email) {
       const result = await db.query(
         `SELECT id,
@@ -90,6 +90,24 @@ class User {
       }
       throw new UnauthorizedError("Invalid email/password combo"); // throwing an error if the email/password combo is invalid
   }
+
+  static async sleep(sleepInfo, userId) {
+    const requiredFields = [ "start_time", "end_time", "userId"]; // creating an array of the required fields
+    sleepInfo.userId = userId; // setting the userId to the userId from the request body
+    console.log("required field", requiredFields)
+    console.log("sleeeee info", sleepInfo)
+
+    validateFields(requiredFields, sleepInfo); // validating the required fields
+
+    const query = `INSERT INTO sleep(start_time, end_time, user_id)
+    VALUES ($1, $2, $3)
+    RETURNING id, start_time, end_time, user_id`; // creating a query to insert the sleep data into the database
+    const result = await db.query(query, [sleepInfo.start_time, sleepInfo.end_time, userId]); // querying the database
+
+    const sleep = result.rows[0]; // creating a variable for the sleep data
+
+    return sleep; // returning the sleep data
+}
 }
 
 module.exports = User

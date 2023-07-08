@@ -17,6 +17,7 @@ router.post("/register", async function (req, res, next) {
   }
   )
 
+
 // router.get("/me", security.requireAuthenticatedUser, async function (req, res, next) {
 //   try {
 //     const { email } = res.locals.user
@@ -39,5 +40,18 @@ router.post("/login", async function (req, res, next) {
 
 })
 
+router.post("/sleep", async (req, res, next) => {
+
+  const { userId, sleepInfo } = req.body;
+  console.log("req.user.id", userId, "req.body", sleepInfo)
+  
+  try {
+      const sleep = await User.sleep(sleepInfo, userId); //calling the sleep method from the user model
+      return res.status(200).json({ sleep }); //returning the sleep
+      
+  } catch (err) {
+      return next(err);
+  }
+}) //creating a route for the sleep page")
 
 module.exports = router

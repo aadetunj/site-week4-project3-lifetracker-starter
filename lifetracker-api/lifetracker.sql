@@ -1,7 +1,7 @@
 \echo 'Delete and recreate lifetracker db?'
 \prompt 'Return for yes or control-C to cancel > ' foo
 
-DROP DATABASE IF EXISTS lifetracker;
+FORCE DROP DATABASE IF EXISTS lifetracker;
 CREATE DATABASE lifetracker;
 \connect lifetracker
 
@@ -14,4 +14,4 @@ CREATE DATABASE lifetracker;
 -- CREATE DATABASE lifetracker_test;
 -- \connect lifetracker_test
 
--- \i lifetracker-schema.sql
+-- \i lifetracker-schema.
