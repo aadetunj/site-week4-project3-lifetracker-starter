@@ -4,8 +4,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function SignIn({
-  signedUser,
-  setSignedUser,
   appState,
   setAppState,
 }) {
@@ -40,8 +38,11 @@ export default function SignIn({
         // sign in was successful!, so change the website page to fit the appearance of the users!
         console.log("Sign in Successful!");
         setAppState(true);
-        setSignedUser(res?.data);
+  
         localStorage.setItem("userId", res?.data.user.id);
+        localStorage.setItem("token", res.data.token);
+        console.log("oooooooooooooo", res.data);
+        localStorage.setItem("firstName", res.data.user.firstName);
         navigate("/");
       } else {
         setErrors((e) => ({

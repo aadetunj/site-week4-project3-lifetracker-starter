@@ -8,14 +8,6 @@ CREATE TABLE users (
  
 );
 
-CREATE TABLE nutrition (
-     id  SERIAL PRIMARY KEY,
-     name TEXT NOT NULL,
-    category  TEXT NOT NULL,
-    calories INTEGER,
-    image_url TEXT NOT NULL
-);
-
 CREATE TABLE sleep (
 id SERIAL PRIMARY KEY,
     start_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

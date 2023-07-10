@@ -3,11 +3,11 @@ import "./Navbar.css";
 import { Link, Outlet } from "react-router-dom";
 
 export default function Navbar({ appState, setAppState }) {
-
   const handleSignOut = async (e) => {
     e.preventDefault();
-    setAppState(false)
-  }
+    setAppState(false);
+    localStorage.clear();
+  };
 
   return (
     <>
