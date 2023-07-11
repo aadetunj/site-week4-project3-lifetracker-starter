@@ -43,7 +43,9 @@ export default function Register({ user, setUser, appState, setAppState }) {
       .post("https://ayos-lifetracker.onrender.com/auth/register", user)
       .then((response) => {
         console.log("User registered successfully", response.data);
-        // ---------why is response.data not printing out, anyhting in the console? what is in the res anyways?---------
+
+      
+
         console.log(response.data);
         // Handle successful registration
       })
