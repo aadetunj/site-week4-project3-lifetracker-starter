@@ -8,10 +8,12 @@
 .sleepHeader {
   width: 90%;
   /* background-color: whitesmoke; */
+  justify-content: center;
 }
 
 .sleepForm {
-  background-color: whitesmoke;
+  background-color: rgb(226, 226, 226);
   width: 12%;
   height: 20%;
+  justify-content: center;
 }

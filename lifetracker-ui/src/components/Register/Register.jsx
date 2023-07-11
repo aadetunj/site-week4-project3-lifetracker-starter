@@ -2,9 +2,11 @@ import "./Register.css";
 import { useState } from "react";
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function Register({ user, setUser, appState, setState }) {
+export default function Register({ user, setUser, appState, setAppState }) {
   // handles changes in the diff prompts.
+  const navigate = useNavigate();
 
   setUser = (event) => {
     if (event.target.name === "firstname") {
@@ -35,10 +37,10 @@ export default function Register({ user, setUser, appState, setState }) {
     // send to async function (API)
     // API gets the data
     // then use usermodule psqwl script to
-
+    // hard@o.e 123123123
     // Add logic to make the API request to register the user using axios
     axios
-      .post("http://localhost:3007/auth/register", user)
+      .post("http://localhost:3008/auth/register", user)
       .then((response) => {
         console.log("User registered successfully", response.data);
         // ---------why is response.data not printing out, anyhting in the console? what is in the res anyways?---------

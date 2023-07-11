@@ -33,7 +33,7 @@ export default function Navbar({ appState, setAppState }) {
               <li>
                 <Link to="/auth/signIn">
                   <button className="signButton" onClick={handleSignOut}>
-                    Sign Out
+                    Log Out
                   </button>
                 </Link>
               </li>
@@ -42,7 +42,7 @@ export default function Navbar({ appState, setAppState }) {
             <>
               <li>
                 <Link to="/auth/signIn">
-                  <button className="signButton">Sign In</button>
+                  <button className="signButton">Log In</button>
                 </Link>
               </li>
               <li>

@@ -1,6 +1,7 @@
 // import "./SleepGrid.css";
 import { useState } from "react";
 import axios from "axios";
+import "./SleepGrid.css";
 
 export default function SleepGrid({
   sleepState,
@@ -41,13 +42,17 @@ export default function SleepGrid({
           ?.map((sleep, index) => (
             <div className="sleepGrid-item" key={index}>
               <div className="sleep-hours">
-                <p> hurs slet{calculateHoursSlept(sleep.start_time, sleep.end_time)}</p>
+                <p>
+                  {" "}
+                  Hours Slept:{" "}
+                  {calculateHoursSlept(sleep.start_time, sleep.end_time)}
+                </p>
               </div>
 
-              <h2>Start Time</h2>
-              <p>{formatDate(sleep.start_time)}</p>
-              <h2>End Time</h2>
-              <p>{formatDate(sleep.end_time)}</p>
+              <h2 className="hTag">Start Time</h2>
+              <p className="hTag">{formatDate(sleep.start_time)}</p>
+              <h2 className="hTag">End Time</h2>
+              <p className="hTag">{formatDate(sleep.end_time)}</p>
             </div>
           ))}
       </div>

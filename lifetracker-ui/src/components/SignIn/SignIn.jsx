@@ -33,7 +33,7 @@ export default function SignIn({
     setErrors((e) => ({ ...e, form: null }));
 
     try {
-      const res = await axios.post("http://localhost:3007/auth/login", form);
+      const res = await axios.post("http://localhost:3008/auth/login", form);
       if (res?.data) {
         // sign in was successful!, so change the website page to fit the appearance of the users!
         console.log("Sign in Successful!");
@@ -64,7 +64,7 @@ export default function SignIn({
 
   return (
     <div className="wholeForm">
-      <h2 className="signInHeader">Sign In</h2>
+      <h2 className="signInHeader">Log In</h2>
       <form className="formField">
         <div className="email-field">
           <label className="label">Email</label>
@@ -97,7 +97,7 @@ export default function SignIn({
             )}
           </div>
         </div>
-        <button onClick={handleOnSubmit}>Sign In</button>
+        <button onClick={handleOnSubmit}>Log In</button>
       </form>
     </div>
   );

@@ -1,7 +1,7 @@
 require("dotenv").config()
 require("colors")
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3007
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3008
 
 // Use dev database, testing database, or via env var, production database
 function getDatabaseUri() {
@@ -12,7 +12,8 @@ function getDatabaseUri() {
   const dbProdName = process.env.DATABASE_NAME || "lifetracker"
   const dbName = process.env.NODE_ENV = "lifetracker"
 
-  return process.env.DATABASE_URL || `postgres://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
+  return process.env.DATABASE_HOSTED_URL
+  // `postgres://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
 }
 
 const BCRYPT_WORK_FACTOR = 10;

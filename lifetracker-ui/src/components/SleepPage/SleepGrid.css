@@ -1,0 +1,22 @@
+.sleepGrid-item {
+  background-color: antiquewhite;
+  width: 30vh;
+  border-radius: 0.5rem;
+  height: 25vh;
+  margin-left: 10vh;
+ /* margin-left: 2vh; */
+}
+
+
+.sleepGrid-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.sleep-hours{
+margin-left: 2vh;
+}
+
+.hTag{
+    margin-left: 5vh;
+}

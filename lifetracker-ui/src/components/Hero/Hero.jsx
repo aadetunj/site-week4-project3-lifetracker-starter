@@ -1,6 +1,6 @@
 import "./Hero.css";
 import React from "react";
-
+import watch from "../../assets/tracker.jpg";
 export default function Hero({appState }) {
   return (
     <div className="hero">
@@ -20,12 +20,8 @@ export default function Hero({appState }) {
             </p>
           )}
         </div>
-        <div className="media">
-          <img
-            src="https://codepath-student-store-demo.surge.sh/assets/student_store_icon.18e5d61a.svg"
-            alt="hero-icon"
-            id="hero-img"
-          />
+        <div >
+        <img className="hero-img" src={watch}></img>
         </div>
       </div>
     </div>

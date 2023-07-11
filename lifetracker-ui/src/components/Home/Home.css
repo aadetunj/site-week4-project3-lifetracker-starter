@@ -4,3 +4,25 @@
   width: 100%;
   gap: 20px;
 }
+
+.photos {
+  max-width: 30vh;
+  max-height: auto;
+  border-radius: 0.5rem;
+}
+
+.photos_card {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5vh;
+  margin-right: 5vh;
+  font-size: 1.5rem;
+
+}
+
+.belowHero {
+  display: flex;
+  flex-direction: row;
+  margin-top: 25vh;
+  justify-content: center;
+}

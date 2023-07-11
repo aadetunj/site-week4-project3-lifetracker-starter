@@ -22,7 +22,7 @@ export default function SleepPage({ appState }) {
   useEffect(() => {
     {
       axios
-        .post("http://localhost:3007/auth/sleepdata", {
+        .post("http://localhost:3008/auth/sleepdata", {
           userId: userId,
         })
         .then((response) => {
@@ -42,7 +42,7 @@ export default function SleepPage({ appState }) {
     e.preventDefault();
 
     axios
-      .post("http://localhost:3007/auth/sleep", {
+      .post("http://localhost:3008/auth/sleep", {
         userId: userId,
         sleepInfo: sleepInfo,
       })
@@ -60,10 +60,11 @@ export default function SleepPage({ appState }) {
   return (
     <>
       {appState ? (
-        <div className="sleepHeader">
+        <>
           <h1 style={{ paddingLeft: "180px", fontSize: "40px" }}>Sleep</h1>
+        <div className="sleepHeader">
 
-          <form onSubmit={handleSubmit}>
+          <form className="sleepForm" onSubmit={handleSubmit}>
             <div>
               <label className="startDay">Start Time:</label>
               <input
@@ -95,10 +96,11 @@ export default function SleepPage({ appState }) {
             setSleepGrid={setSleepGrid}
           />
         </div>
+        </>
       ) : (
         <h1 style={{ paddingLeft: "180px", fontSize: "40px" }}>
           {" "}
-          Sign in to View Sleep data
+          Log in to View Sleep data
         </h1>
       )}
     </>

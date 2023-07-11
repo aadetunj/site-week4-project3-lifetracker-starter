@@ -31,7 +31,7 @@ export default function App() {
 
     if (!decodedToken) {
       axios
-        .post("http://localhost:3007/auth/decodedtoken", {
+        .post("http://localhost:3008/auth/decodedtoken", {
           token: token,
         })
         .then((response) => {
@@ -78,7 +78,7 @@ export default function App() {
                 user={user}
                 setUser={setUser}
                 appState={appState}
-                setSApptate={setAppState}
+                setAppState={setAppState}
               />
             }
           />
