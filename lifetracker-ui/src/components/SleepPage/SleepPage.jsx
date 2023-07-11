@@ -62,40 +62,39 @@ export default function SleepPage({ appState }) {
       {appState ? (
         <>
           <h1 style={{ paddingLeft: "180px", fontSize: "40px" }}>Sleep</h1>
-        <div className="sleepHeader">
+          <div className="sleepHeader">
+            <form className="sleepForm" onSubmit={handleSubmit}>
+              <div>
+                <label className="startDay">Start Time:</label>
+                <input
+                  name="start_time"
+                  type="datetime-local"
+                  id="start"
+                  value={sleepInfo?.start_time}
+                  onChange={handleOnInputChange}
+                />
+              </div>
+              <div>
+                <label className="startTime">End Time:</label>
+                <input
+                  name="end_time"
+                  type="datetime-local"
+                  id="end"
+                  value={sleepInfo?.end_time}
+                  onChange={handleOnInputChange}
+                />
+              </div>
 
-          <form className="sleepForm" onSubmit={handleSubmit}>
-            <div>
-              <label className="startDay">Start Time:</label>
-              <input
-                name="start_time"
-                type="datetime-local"
-                id="start"
-                value={sleepInfo?.start_time}
-                onChange={handleOnInputChange}
-              />
-            </div>
-            <div>
-              <label className="startTime">End Time:</label>
-              <input
-                name="end_time"
-                type="datetime-local"
-                id="end"
-                value={sleepInfo?.end_time}
-                onChange={handleOnInputChange}
-              />
-            </div>
+              <button type="submit">Submit</button>
+            </form>
 
-            <button type="submit">Submit</button>
-          </form>
-
-          <SleepGrid
-            sleepState={sleepState}
-            setSleepState={setSleepState}
-            sleepGrid={sleepGrid}
-            setSleepGrid={setSleepGrid}
-          />
-        </div>
+            <SleepGrid
+              sleepState={sleepState}
+              setSleepState={setSleepState}
+              sleepGrid={sleepGrid}
+              setSleepGrid={setSleepGrid}
+            />
+          </div>
         </>
       ) : (
         <h1 style={{ paddingLeft: "180px", fontSize: "40px" }}>
