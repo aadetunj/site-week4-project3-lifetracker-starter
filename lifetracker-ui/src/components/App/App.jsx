@@ -31,7 +31,7 @@ export default function App() {
 
     if (!decodedToken) {
       axios
-        .post("http://localhost:3008/auth/decodedtoken", {
+        .post("https://ayos-lifetracker.onrender.com/auth/decodedtoken", {
           token: token,
         })
         .then((response) => {

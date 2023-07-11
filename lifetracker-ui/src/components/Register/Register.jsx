@@ -40,7 +40,7 @@ export default function Register({ user, setUser, appState, setAppState }) {
     // hard@o.e 123123123
     // Add logic to make the API request to register the user using axios
     axios
-      .post("http://localhost:3008/auth/register", user)
+      .post("https://ayos-lifetracker.onrender.com/auth/register", user)
       .then((response) => {
         console.log("User registered successfully", response.data);
         // ---------why is response.data not printing out, anyhting in the console? what is in the res anyways?---------
